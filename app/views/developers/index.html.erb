@@ -1,0 +1,36 @@
+<h2><%= link_to 'All Developers listing here', developers_path %></h2>
+
+<%= form_tag developers_path, :method => "get" do %>
+  <%= label_tag(:search, "Use programming language:") %>
+  <br>
+  <%= text_field_tag :search_pl, params[:search_pl] %> </br>
+  <%= label_tag(:search, "Use developer language:") %>
+  <br>
+  <%= text_field_tag :search_dl, params[:search_dl] %> </br>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Programming Language</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @developers.each do |developer| %>
+      <tr>
+        <td><%= developer.id %></td>
+        <td><%= developer.email %></td>
+        <td><%= developer.programming_languages.pluck(:name).join(',') %></td>
+        <td><%= developer.languages.pluck(:code).join(',') %></td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
