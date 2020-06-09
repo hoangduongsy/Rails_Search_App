@@ -7,7 +7,7 @@
   <%= label_tag(:search, "Use developer language:") %>
   <br>
   <%= text_field_tag :search_dl, params[:search_dl] %> </br>
-  <%= submit_tag ("Search") %>
+  <%= submit_tag "Search", name: nil %>
 <% end %>
 
 <br>

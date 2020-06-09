@@ -11,7 +11,7 @@ class Developer < ApplicationRecord
                       uniqueness: { case_sensitive: false },
                       length: { maximum: 100 },
                       format: { with: VALID_EMAIL_REGEX }
-
+    
     def self.search_programming_language(search_pl)
       mul_search_pl = search_pl.downcase.gsub(/,/, " ").split(STR_REGEX)
       joins(:programming_languages).where("LOWER(programming_languages.name) IN (?)", mul_search_pl)
