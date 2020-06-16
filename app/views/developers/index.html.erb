@@ -27,8 +27,8 @@
       <tr>
         <td><%= developer.id %></td>
         <td><%= developer.email %></td>
-        <td><%= developer.programming_languages.pluck(:name).join(',') %></td>
-        <td><%= developer.languages.pluck(:code).join(',') %></td>
+        <td><%= developer.programming_language %></td>
+        <td><%= developer.language %></td>
       </tr>
     <% end %>
     
